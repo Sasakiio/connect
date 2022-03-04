@@ -1,3 +1,25 @@
+# Docker compose commands
+
+## Start the project
+
+- docker-compose up
+
+## Start the project (not blocking)
+
+- docker-compose up -d
+- docker-compose logs -f (to get the logs)
+
+## Run yarn command
+
+- docker-compose run --rm web yarn <command>
+
+## Stop the project
+
+- docker-compose down
+
+
+## ==========================================
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
