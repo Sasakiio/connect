@@ -1,0 +1,19 @@
+version: "3.6"
+
+volumes:
+  web-yarn:
+
+services:
+  web:
+    build:
+      context: .
+    stdin_open: true
+    volumes:
+      - web-yarn:/usr/local/share/.cache/yarn/v6
+      - .:/app
+    ports:
+      - 4000:4000
+    environment:
+      - PORT=4000
+    working_dir: /app
+    command: sh -c "yarn start"
