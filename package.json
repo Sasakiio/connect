@@ -15,13 +15,37 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext js --ext jsx --max-warnings 0 ./src"
   },
   "eslintConfig": {
     "extends": [
+      "eslint:recommended",
       "react-app",
-      "react-app/jest"
-    ]
+      "plugin:import/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": [
+      "import",
+      "simple-import-sort"
+    ],
+    "rules": {
+      "import/no-unresolved": "error",
+      "import/newline-after-import": "error",
+      "import/no-duplicates": "error",
+      "import/first": "error",
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error"
+    },
+    "settings": {
+      "import/extensions": [".js", "jsx"],
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx"],
+          "moduleDirectory": ["node_modules", "src"]
+        }
+      }
+    }
   },
   "browserslist": {
     "production": [
@@ -34,5 +58,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.11.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "prettier": "^2.6.0"
   }
 }
