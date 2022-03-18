@@ -1,13 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import Home from "./component/Home";
+// import logo from "./logo.svg";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Mio connect! hhh?
+          
         </p>
         <a
           className="App-link"
@@ -17,7 +20,8 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+      <Home />
     </div>
   );
 }

@@ -3,12 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/runtime": "^7.17.7",
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@material-ui/styles": "^4.11.4",
+    "@mui/material": "^5.5.1",
+    "@mui/styled-engine-sc": "^5.4.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "styled-components": "^5.3.3",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
@@ -38,11 +45,20 @@
       "simple-import-sort/exports": "error"
     },
     "settings": {
-      "import/extensions": [".js", "jsx"],
+      "import/extensions": [
+        ".js",
+        "jsx"
+      ],
       "import/resolver": {
         "node": {
-          "extensions": [".js", ".jsx"],
-          "moduleDirectory": ["node_modules", "src"]
+          "extensions": [
+            ".js",
+            ".jsx"
+          ],
+          "moduleDirectory": [
+            "node_modules",
+            "src"
+          ]
         }
       }
     }
