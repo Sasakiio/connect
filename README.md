@@ -17,6 +17,14 @@
 
 - docker-compose down
 
+## eslint
+
+- docker-compose run --rm web yarn lint --fix
+
+## aliases
+
+- vim ~/. bash_aliases
+
 
 ## ==========================================
 
