@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import * as React from "react";
-import { FormattedDate, FormattedTime, IntlProvider } from "react-intl";
+import { FormattedDate, FormattedTime } from "react-intl";
 
 const useStyles = makeStyles({
   channelsBar: {
@@ -17,9 +17,14 @@ const useStyles = makeStyles({
     flexGrow: 0,
   },
   contentBar: {
+    backgroundColor: "white",
     display: "flex",
+    flexDirection: "column",
+    maxHeight: "5rem",
+    padding: "8px",
   },
   contentHeader: {
+    alignItems: "center",
     display: "flex",
   },
   root: {
@@ -36,6 +41,9 @@ const useStyles = makeStyles({
     width: "35em",
     padding: "16px",
     flexGrow: 2,
+  },
+  label: {
+    margin: 8,
   },
 });
 
@@ -54,28 +62,21 @@ const Home = () => {
         <span>Channels</span>
       </div>
       <div className={classes.contentBar}>
-        <Avatar alt="Name" src=" " />
         <div className={classes.contentHeader}>
-          Label
-          <IntlProvider locale="zh" defaultLocale="zh">
-            <Typography variant="body2" color="textSecondary">
-              <FormattedDate
-                day="2-digit"
-                month="long"
-                value={new Date()}
-                year="numeric"
-              />
-            </Typography>
-            <Typography variant="body2" color="textSecondary">
-              <FormattedTime
-                hour="numeric"
-                minute="numeric"
-                value={new Date()}
-              />
-            </Typography>
-          </IntlProvider>
+          <Avatar alt="Name" src=" " />
+          <div className={classes.label}>Label</div>
+          <Typography variant="body2" color="textSecondary">
+            <FormattedDate
+              day="2-digit"
+              month="long"
+              value={new Date()}
+              year="numeric"
+            />
+          </Typography>
+          <Typography variant="body2" color="textSecondary">
+            <FormattedTime hour="numeric" minute="numeric" value={new Date()} />
+          </Typography>
         </div>
-
         <Typography variant="body2">Hello :)</Typography>
       </div>
       <Paper
