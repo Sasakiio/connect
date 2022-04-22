@@ -17,9 +17,14 @@ const useStyles = makeStyles({
     flexGrow: 0,
   },
   contentBar: {
+    backgroundColor: "white",
     display: "flex",
+    flexDirection: "column",
+    maxHeight: "5rem",
+    padding: "8px",
   },
   contentHeader: {
+    alignItems: "center",
     display: "flex",
   },
   root: {
@@ -36,6 +41,9 @@ const useStyles = makeStyles({
     width: "35em",
     padding: "16px",
     flexGrow: 2,
+  },
+  label: {
+    margin: 8,
   },
 });
 
@@ -54,9 +62,9 @@ const Home = () => {
         <span>Channels</span>
       </div>
       <div className={classes.contentBar}>
-        <Avatar alt="Name" src=" " />
         <div className={classes.contentHeader}>
-          Label
+          <Avatar alt="Name" src=" " />
+          <div className={classes.label}>Label</div>
           <Typography variant="body2" color="textSecondary">
             <FormattedDate
               day="2-digit"
@@ -69,7 +77,6 @@ const Home = () => {
             <FormattedTime hour="numeric" minute="numeric" value={new Date()} />
           </Typography>
         </div>
-
         <Typography variant="body2">Hello :)</Typography>
       </div>
       <Paper
