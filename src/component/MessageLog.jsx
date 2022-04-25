@@ -4,13 +4,6 @@ import Avatar from "@mui/material/Avatar";
 import { FormattedDate, FormattedTime } from "react-intl";
 
 const useStyles = makeStyles({
-  channelsBar: {
-    color: "white",
-    height: "50em",
-    width: 300,
-    background: "linear-gradient(45deg, #2575aa 30%, #96b4f5 90%)",
-    flexGrow: 0,
-  },
   contentBar: {
     backgroundColor: "white",
     display: "flex",
@@ -32,10 +25,6 @@ const MessageLog = () => {
 
   return (
     <>
-      {" "}
-      <div className={classes.channelsBar}>
-        <span>Channels</span>
-      </div>
       <div className={classes.contentBar}>
         <div className={classes.contentHeader}>
           <Avatar alt="Name" src=" " />

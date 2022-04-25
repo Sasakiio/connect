@@ -7,6 +7,13 @@ import MessageInput from "../component/MessageInput";
 import MessageLog from "../component/MessageLog";
 
 const useStyles = makeStyles({
+  channelsBar: {
+    color: "white",
+    height: "50em",
+    width: 300,
+    background: "linear-gradient(45deg, #2575aa 30%, #96b4f5 90%)",
+    flexGrow: 0,
+  },
   root: {
     backgroundColor: "#eee",
     border: "1px solid black",
@@ -22,6 +29,9 @@ const Home = () => {
 
   return (
     <Box className={classes.root} component="form" sx={{ width: "60em" }}>
+      <div className={classes.channelsBar}>
+        <span>Channels</span>
+      </div>
       <MessageLog />
       <Paper
         sx={{ position: "absolute", bottom: 30, left: 300, right: 0 }}
