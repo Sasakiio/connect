@@ -10,6 +10,7 @@ const useStyles = makeStyles({
     flexDirection: "column",
     maxHeight: "5rem",
     padding: "8px",
+    margin: "8px",
   },
   contentHeader: {
     alignItems: "center",
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MessageLog = () => {
+const MessageLog = ({ text }) => {
   const classes = useStyles();
 
   return (
@@ -41,7 +42,7 @@ const MessageLog = () => {
             <FormattedTime hour="numeric" minute="numeric" value={new Date()} />
           </Typography>
         </div>
-        <Typography variant="body2">Hello :)</Typography>
+        <Typography variant="body2">{text}</Typography>
       </div>
     </>
   );

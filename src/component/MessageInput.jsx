@@ -14,12 +14,16 @@ const useStyles = makeStyles({
   },
 });
 
-const MessageInput = () => {
+const MessageInput = ({ submit }) => {
   const [text, setText] = useState();
   const classes = useStyles();
 
   const handleTextChange = (event) => {
-    setText(event.target.text);
+    setText(event.target.value);
+  };
+
+  const handleSendMessage = () => {
+    submit({ text });
   };
 
   return (
@@ -32,7 +36,9 @@ const MessageInput = () => {
         onChange={handleTextChange}
         variant="outlined"
       />
-      <Button variant="contained">Send</Button>
+      <Button variant="contained" onClick={handleSendMessage}>
+        Send
+      </Button>
     </div>
   );
 };
