@@ -1,6 +1,6 @@
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/styles";
 import Avatar from "@mui/material/Avatar";
+import Typography from "@mui/material/Typography";
+import makeStyles from "@mui/styles/makeStyles";
 import { FormattedDate, FormattedTime } from "react-intl";
 
 const useStyles = makeStyles({

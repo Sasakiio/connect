@@ -1,10 +1,11 @@
-import { makeStyles } from "@material-ui/styles";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import { useState } from "react";
+import makeStyles from "@mui/styles/makeStyles";
+import { useRef, useState } from "react";
 
 const useStyles = makeStyles({
   textBar: {
+    alignItems: "center",
     backgroundColor: "white",
     display: "flex",
     height: 90,
@@ -15,31 +16,40 @@ const useStyles = makeStyles({
 });
 
 const MessageInput = ({ submit }) => {
-  const [text, setText] = useState();
+  const [text, setText] = useState("");
+  const textRef = useRef();
   const classes = useStyles();
 
   const handleTextChange = (event) => {
     setText(event.target.value);
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = (e) => {
+    e.preventDefault();
     submit({ text });
+    textRef.current.focus();
+
+    setText("");
   };
 
   return (
-    <div className={classes.textBar}>
+    <form onSubmit={handleSendMessage} className={classes.textBar}>
       <TextField
         label="Text"
-        multiline
+        // multiline
+        InputLabelProps={{
+          shrink: true,
+        }}
         fullWidth
         value={text}
+        inputRef={textRef}
         onChange={handleTextChange}
-        variant="outlined"
+        variant="standard"
       />
-      <Button variant="contained" onClick={handleSendMessage}>
+      <Button variant="contained" type="submit">
         Send
       </Button>
-    </div>
+    </form>
   );
 };
 
