@@ -32,14 +32,27 @@ const useStyles = makeStyles({
   },
 });
 
+const BOT_MESSAGES = [
+  "Hello,I am connect bot",
+  "你可以在此处输入任何东西",
+  "自动回复会在此生效",
+];
+
 const Home = () => {
   const classes = useStyles();
   const [messages, setMessages] = useState([]);
   const contentContainerRef = useRef();
 
-  const submit = (text) => {
-    setMessages((messages) => [...messages, text]);
-  };
+  const appendMessage = (message) =>
+    setMessages((messages) => [...messages, message]);
+
+  const submit = (text) => appendMessage(text);
+
+  useEffect(() => {
+    const id = setTimeout(appendMessage, 1000, { text: BOT_MESSAGES });
+
+    return () => clearTimeout(id);
+  }, []);
 
   useEffect(() => {
     const container = contentContainerRef.current;
