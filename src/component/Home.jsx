@@ -59,11 +59,30 @@ const Home = () => {
         <span>Channels</span>
       </div>
       <div className={classes.content} ref={contentContainerRef}>
-        <Grid>
-          {messages.map((m, index) => (
-            <MessageLog key={index} text={m.text} />
-          ))}
-        </Grid>
+        {messages.map((m, index) => (
+          <div key={index}>
+            <Grid
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-end",
+              }}
+            >
+              <MessageLog text={m.text} />
+            </Grid>
+            <Grid
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+              }}
+            >
+              <MessageLog
+                text={m.text + Math.random().toString(36).slice(-11)}
+              />
+            </Grid>
+          </div>
+        ))}
       </div>
       <Paper
         sx={{ position: "absolute", bottom: 30, left: 300, right: 0 }}

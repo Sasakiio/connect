@@ -26,14 +26,25 @@ const MessageInput = ({ submit }) => {
 
   const handleSendMessage = (e) => {
     e.preventDefault();
+
+    if (!text) {
+      return;
+    }
+
     submit({ text });
     textRef.current.focus();
 
     setText("");
   };
 
+  const hasText = Boolean(text);
+
   return (
-    <form onSubmit={handleSendMessage} className={classes.textBar}>
+    <form
+      onSubmit={handleSendMessage}
+      className={classes.textBar}
+      autoComplete="off"
+    >
       <TextField
         label="Text"
         // multiline
@@ -46,7 +57,7 @@ const MessageInput = ({ submit }) => {
         onChange={handleTextChange}
         variant="standard"
       />
-      <Button variant="contained" type="submit">
+      <Button variant="contained" type="submit" disabled={!hasText}>
         Send
       </Button>
     </form>
